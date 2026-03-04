@@ -11,9 +11,43 @@ const BASE_URL = `https://paw-hut.b.goit.study`;
 const ANDROID_URL = `/api/feedbacks`;
 const feedbacks = document.querySelector('.feedbacks');
 
+const storiesSwiper = new Swiper('.stories-swiper', {
+  modules: [Navigation, Pagination],
+
+  slidesPerView: 1,
+  spaceBetween: 32,
+
+  navigation: {
+    nextEl: '#stories .btn-next',
+    prevEl: '#stories .btn-back',
+  },
+
+  pagination: {
+    el: '#stories .stories-navigation .swiper-pagination',
+      clickable: true,
+    dynamicBullets: false,
+  dynamicMainBullets: 6,
+  },
+
+  breakpoints: {
+    768: {
+      slidesPerView: 2,
+    },
+    1440: {
+      slidesPerView: 2,
+      },
+    },
+    watchOverflow: false,
+});
+
 fetch(`${BASE_URL}${ANDROID_URL}`)
     .then(response => response.json())
-    .then(data => createFeedbackCard(data.feedbacks))
+    .then(data => {
+        createFeedbackCard(data.feedbacks);
+    storiesSwiper.update();
+    storiesSwiper.pagination.render();
+storiesSwiper.pagination.update();
+})
   .catch(error => console.error('Error fetching data:', error));
 
   function renderStars(rate) {
@@ -46,14 +80,15 @@ fetch(`${BASE_URL}${ANDROID_URL}`)
   
 function createFeedbackCard(items) {
     const marcupFeedback = items.map(review => `
-       <div class="feedback-card">
+       <div class="swiper-slide feedback-card">
              <div class="rating">
         <div class="stars">${renderStars(review.rate)}</div>
       </div>
             <p class="feedback-description">${review.description}</p>
             <p class="feedback-author">${review.author}</p>
             </div> `).join('');
-    feedbacks.insertAdjacentHTML('beforeend', marcupFeedback);
+    // feedbacks.insertAdjacentHTML('beforeend', marcupFeedback);
+    feedbacks.innerHTML = marcupFeedback;
 }
 
 
