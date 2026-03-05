@@ -3,7 +3,7 @@ html {
 }
 
 .container {
-    /* видалити  min-height: 0;  після виправлення у container.css min-height: 320px на min-width: 100%; */
+    /* !видалити  min-height: 0;  після виправлення у container.css min-height: 320px на min-width: 100%; */
 
     min-width: 100%;
     min-height: 0;
