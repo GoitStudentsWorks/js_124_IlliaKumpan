@@ -10,10 +10,11 @@ import 'swiper/css/pagination';
 const BASE_URL = `https://paw-hut.b.goit.study`;
 const ANDROID_URL = `/api/feedbacks`;
 const feedbacks = document.querySelector('.feedbacks');
+const buttonStories = document.querySelectorAll(".stories-btn");
 
 const storiesSwiper = new Swiper('.stories-swiper', {
   modules: [Navigation, Pagination],
-
+ slidesPerGroup: 1,
   slidesPerView: 1,
   spaceBetween: 32,
 
@@ -24,16 +25,18 @@ const storiesSwiper = new Swiper('.stories-swiper', {
 
   pagination: {
     el: '#stories .stories-navigation .swiper-pagination',
-      clickable: true,
-    dynamicBullets: false,
-  dynamicMainBullets: 6,
+    clickable: true,
+    dynamicBullets: true,
+    dynamicMainBullets: 6,
   },
 
   breakpoints: {
     768: {
+       slidesPerGroup: 1,
       slidesPerView: 2,
     },
     1440: {
+       slidesPerGroup: 1,
       slidesPerView: 2,
       },
     },
@@ -92,3 +95,6 @@ function createFeedbackCard(items) {
 }
 
 
+buttonStories.forEach(btn => {
+  btn.addEventListener("click", () => btn.blur());
+})

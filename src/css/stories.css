@@ -46,13 +46,13 @@
     margin-bottom: 40px;
 }
 
-@media only screen and (min-width: 768px) {
+/* @media only screen and (min-width: 768px) {
     .feedbacks {
         flex-direction: row;
         gap: 32px;
     }
 
-}
+} */
 .rating {
     display: flex;
     flex-direction: row;
@@ -115,6 +115,7 @@ margin-bottom: 40px;
     }
 
 }
+/* button */
 .stories-container-btn{
     display: flex;
         align-items: center;
@@ -124,14 +125,28 @@ margin-bottom: 40px;
 }
 .stories-btn{
     border: 1px solid #C3B49D;
-    background: transparent;
+    background:#EEE9E3;
     border-radius: 8px;
     padding: 12px;
     width: 48px;
     height: 48px;
+    transition: border-color 0.4s ease, box-shadow 0.3s ease, transform 0.120ms ease;
 }
-
-/* SWIPER */
+.stories-btn:hover{
+    border: 1px solid #02060A;
+}
+.stories-btn:focus {
+    border: 1px solid #02060A;
+    box-shadow: inset 0 4px 6px -2px rgba(0, 0, 0, 0.03), inset 0 12px 16px -4px rgba(0, 0, 0, 0.08);
+    transform: scale(0.97);
+}
+.btn-back.swiper-button-disabled,
+.btn-next.swiper-button-disabled {
+    opacity: 0.5;
+    cursor: default;
+pointer-events: none;
+}
+/* #region SWIPER */
 .stories-navigation {
     width: 100%;
     display: flex;
@@ -146,7 +161,7 @@ margin-bottom: 40px;
 
 .stories-navigation .swiper-pagination {
     position: static;
-    width: auto !important;
+    width: auto !important; 
     overflow: visible !important;
     text-align: left;
     display: flex;
@@ -167,3 +182,11 @@ margin-bottom: 40px;
     transform: none !important;
     left: auto !important;
 }
+.story-card {
+    width: 100%;
+    box-sizing: border-box;
+}
+.swiper{
+    overflow: hidden;
+} 
+/* #endregion SWIPER */
