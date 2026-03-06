@@ -38,7 +38,6 @@ const storiesSwiper = new Swiper('.stories-swiper', {
     dynamicBullets: true,
     dynamicMainBullets: 5,
   },
-
   breakpoints: {
     768: {
        slidesPerGroup: 2,

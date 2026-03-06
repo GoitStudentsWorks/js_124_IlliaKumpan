@@ -162,7 +162,7 @@ pointer-events: none;
      align-items: flex-start;
  }
 .swiper-slide {
-    height: auto !important;
+    height: auto;
 }
 .stories-swiper {
 margin-bottom: 40px;
