@@ -1,3 +1,5 @@
+import { openOrderModal } from './modal-application.js';
+
 const backdrop = document.querySelector('.modal-pet-backdrop');
 const modalImage = document.querySelector('.modal-pet-image');
 const modalSpecies = document.querySelector('.modal-pet-species');
@@ -7,6 +9,7 @@ const modalGender = document.querySelector('.modal-pet-gender');
 const modalDesc = document.querySelector('.modal-pet-desc');
 const modalHealth = document.querySelector('.modal-pet-health');
 const modalBehavior = document.querySelector('.modal-pet-behavior');
+
 
 let currentAnimalId = null;
 
@@ -19,7 +22,7 @@ export function openPetModal(animalData) {
   document.body.style.overflow = 'hidden';
 }
 
-function closePetModal() {
+ function closePetModal() {
   backdrop.classList.add('is-hidden');
   document.body.style.overflow = '';
 }
@@ -48,14 +51,13 @@ function onEscKeyPress(event) {
   }
 }
 
-function onAdoptClick() {
-  const animalId = currentAnimalId;
-  closePetModal();
 
-  
-  // Code to open Order Modal (Section 08).
-  // Uncomment and add import { openOrderModal } from './modal-application.js' at the top when ready.
-  openOrderModal(animalId);
+
+function onAdoptClick() {
+
+  const animalId = currentAnimalId;
+    closePetModal();
+    openOrderModal(animalId);
   
 }
 
