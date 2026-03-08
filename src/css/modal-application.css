@@ -11,7 +11,7 @@ body:has(.order-modal-overlay.is-open) {
   display: flex;
   justify-content: center;
   overflow-y: auto;
-  padding: 20px 20px;
+  padding: 64px 20px;
   background: rgba(0, 0, 0, 0.25);
 
   opacity: 0;
